@@ -1,23 +1,14 @@
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 3.27"
-    }
-  }
+ cloud {
+   organization = "test_wowochi "
 
-  backend "remote" {
-    organization = "test_wowochi"
-
-    workspaces {
-      name = "squadron"
-    }
-  }
+   workspaces {
+     name = "squadron"
+   }
+ }
 }
 provider "aws" {
   region = "us-east-1"
-  access_key = var.access_key
-  secret_key = var.secret_access_key
 }
 
 resource "aws_iam_user" "users" {
