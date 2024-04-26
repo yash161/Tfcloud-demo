@@ -8,17 +8,30 @@ terraform {
   }
 
   backend "remote" {
-    organization = "your-organization"
+    organization = "test_wowochi"
 
     workspaces {
-      name = "your-workspace"
+      name = "squadron"
     }
   }
+}
+variable "access_key" {
+  description = "AWS access key"
+  type        = string
+  sensitive   = true
+}
+
+variable "secret_access_key" {
+  description = "AWS secret access key"
+  type        = string
+  sensitive   = true
 }
 
 # Provider configuration
 provider "aws" {
   region = "us-east-1"
+ access_key = var.access_key
+  secret_key = var.secret_access_key
 }
 
 # Accessing a Terraform variable
