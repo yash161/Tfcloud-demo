@@ -1,11 +1,18 @@
 terraform {
- cloud {
-   organization = "test_wowochi"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 3.27"
+    }
+  }
 
-   workspaces {
-     name = "squadron"
-   }
- }
+  backend "remote" {
+    organization = "test_wowochi"
+
+    workspaces {
+      name = "squadron"
+    }
+  }
 }
 provider "aws" {
   region = "us-east-1"
