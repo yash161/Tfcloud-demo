@@ -4,12 +4,3 @@ variable "user_names" {
   default     = ["yash"]
 }
 
-variable "access_key" {
-  description = "Create IAM users with these names"
-  type        = string
-}
-
-variable "secret_access_key" {
-  description = "Create IAM users with these names"
-  type        = string
-}
